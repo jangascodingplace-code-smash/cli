@@ -1,0 +1,44 @@
+[tool.poetry]
+name = "code-smash-cli"
+version = "0.1.0"
+description = "CLI Tool for code-smash.com"
+authors = ["JangasCodingplace <janisgoesser92@gmail.com>"]
+
+[tool.poetry.group.dev.dependencies]
+black = "^24.10.0"
+isort = "^5.13.2"
+mypy = "^1.13.0"
+types-requests = "^2.32.0.20241016"
+pre-commit = "^4.0.1"
+ruff = "^0.8.2"
+
+[tool.black]
+line-length = 100
+
+[tool.mypy]
+ignore_missing_imports = true
+strict_optional = true
+
+[tool.ruff]
+exclude = [
+    "tests/*",
+]
+
+[tool.semantic_release]
+version_toml = [
+    "pyproject.toml:tool.poetry.version",
+]
+branch = "main"
+upload_to_pypi = false
+upload_to_release = false
+commit_message = "chore(release): {version} [skip ci]"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+requests = "^2.32.3"
+click = "^8.1.7"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
